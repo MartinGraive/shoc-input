@@ -1,0 +1,1135 @@
+# SHOC parameter file
+DESCRIPTION          New eReefs GBR 4k grid with rivers. Uses JCU bathy (www.deepreef.org). Created by JA 08.05.2012.
+NAME                 GBR4
+PROJECTION           geographic
+TIMEUNIT             seconds since 1979-01-01 00:00:00 +10
+OUTPUT_TIMEUNIT      days since 1979-01-01 00:00:00 +10
+LENUNIT              metre
+# 16 Dec 2060
+START_TIME           29935.917 days
+STOP_TIME            29945.5 days
+RAMPSTART            29935.917 days
+RAMPEND              29939 days
+# INVBARO?
+RAMPVARS             WIND TIDALH CUSTOM FILEIN 
+ID_NUMBER            1.85
+REVISION             $Revision: 1120 $
+
+INPUT_FILE           inputs/in7.nc
+
+#RESTART_NAME	      inputs/restart.nc 
+#RESTART_DT           1 days
+#RESTART_COMPRESS     YES
+
+# Output files
+OutputFiles            4
+
+file0.name           outputs/out_std.nc
+file0.filetype       standard
+file0.tinc           21600.0 seconds
+file0.bytespervalue  4
+file0.vars           ALL
+
+file1.name           outputs/out_std_surf.nc
+file1.filetype       standard
+file1.tinc           3600.0 seconds
+file1.bytespervalue  4
+file1.vars           ALL
+
+file2.name           outputs/swan_forcing.nc
+file2.filetype       simple_cf
+file2.tinc           3600.0 seconds
+file2.bytespervalue  4
+file2.vars           eta u v
+
+file3.name           outputs/out_simple.nc
+file2.filetype       simple_cf
+file3.tinc           86400.0 seconds
+file3.bytespervalue  4
+file3.vars           ALL
+
+# Time series
+TSPOINTS             0
+
+# Flags
+WINDOWS              20
+DP_MODE              openmp
+WINDOW_TYPE          STRIPE_E1
+SHOW_WINDOWS         YES
+NONLINEAR            YES
+CALCDENS             YES
+2D-MODE              NO
+STABILITY            SUB-STEP
+MERGE_THIN           YES
+HMIN                 0.07
+SLIP                 1.0   
+SIGMA                NO
+SMOOTH_VARS          CD:1
+
+# Time steps
+DT                   90 seconds
+IRATIO               18
+TRATIO               1
+
+# Advection
+MOM_SCHEME           ORDER2
+TRA_SCHEME           ORDER2
+ULTIMATE             YES
+
+# Horizontal mixing
+DIFF_SCALE           LINEAR
+U1VH                 -2100
+U2VH                 -2100
+U1KH                 -2100
+U2KH                 -2100
+SMAGORINSKY          0.1
+SMAG_SMOOTH          1
+
+# Vertical mixing
+MIXING_SCHEME        k-e
+VZ0                  1.0000e-04
+KZ0                  1.0000e-05
+ZS                   0.1
+
+# Bottom friction
+QBFC                 0.0025
+UF                   0.0001
+Z0                   0.001
+
+# Constants
+G                    9.8100
+SPECHEAT             3990.0
+AIRDENS              1.2250
+AMBIENT_AIR_PRESSURE 101300
+
+# Diagnostics
+CFL                  PASSIVE
+MIX_LAYER            NONE
+MEAN                 VEL3D KZ_M VOLFLUX
+MEAN_DT              1 hour
+VORTICITY            NONE
+NUMBERS              NONE
+ALERT                NONE
+MOM_TEND             YES
+CALC_FLUXES          NONE
+CALC_PERCS           NONE
+FLUSHING_TR          NO
+TOTALS               NO
+STERIC_HEIGHT        0.00  
+TRA_TEND             temp
+
+# Grid
+GRIDTYPE             NUMERICAL
+NCE1                 600
+NCE2                 180
+
+# Vertical grid spacing
+LAYERFACES           48
+-4000.00
+-3780.00
+-3580.00
+-3380.00
+-3180.00
+-2980.00
+-2780.00
+-2580.00
+-2380.00
+-2180.00
+-1980.00
+-1780.00
+-1580.00
+-1380.00
+-1210.00
+-1060.00
+-920.00 
+-810.00 
+-700.00 
+-610.00 
+-530.00 
+-460.00 
+-400.00 
+-340.00 
+-290.00 
+-250.00 
+-220.00 
+-180.00 
+-160.00 
+-130.00 
+-110.00 
+-96.00  
+-80.00  
+-66.00  
+-54.00  
+-44.00  
+-35.00  
+-27.00  
+-20.5  
+-15.0  
+-10.5  
+-7.1   
+-4.0
+-2.0   
+-1.0   
+ 0.0
+ 1.0
+ 2.0
+
+# Bathymetry limits
+BATHYMIN            -3.0   
+BATHYMAX             4000
+ETAMAX               50
+MIN_CELL_THICKNESS   15%
+MAXGRAD              0.2
+SMOOTHING            10
+142 179
+142 179
+142 178
+142 177
+142 176
+143 179
+143 178
+143 177
+143 176
+144 179
+144 178
+144 177
+144 176
+145 179
+145 178
+145 177
+145 176
+146 179
+146 178
+146 177
+146 176
+147 179
+147 178
+147 177
+147 176
+148 179
+148 178
+148 177
+148 176
+149 179
+149 178
+149 177
+149 176
+599 139
+599 140
+599 141
+599 142
+599 143
+599 144
+599 145
+599 146
+599 147
+599 148
+599 149
+599 150
+599 151
+599 152
+599 153
+599 154
+598 139
+598 140
+598 141
+598 142
+598 143
+598 144
+598 145
+598 146
+598 147
+598 148
+598 149
+598 150
+598 151
+598 152
+598 153
+598 154
+597 139
+597 140
+597 141
+597 142
+597 143
+597 144
+597 145
+597 146
+597 147
+597 148
+597 149
+597 150
+597 151
+597 152
+597 153
+597 154
+596 139
+596 140
+596 141
+596 142
+596 143
+596 144
+596 145
+596 146
+596 147
+596 148
+596 149
+596 150
+596 151
+596 152
+596 153
+596 154
+
+
+##########################################################################################
+# Tracers
+NTRACERS             36
+
+TRACER0.name         salt
+TRACER0.long_name    Salinity
+TRACER0.units        PSU
+TRACER0.fill_value   35.0  
+TRACER0.valid_range  0.0    50.0  
+TRACER0.advect       1
+TRACER0.diffuse      1
+TRACER0.diagn        0
+TRACER0.data         inputs/ocean_salt_mth_2060_12-mod.nc
+TRACER0.relaxation_file           inputs/ocean_salt_mth_2060_12-mod.nc
+TRACER0.relaxation_input_dt       1 day
+TRACER0.relaxation_time_constant  exp_depth 1000 100 days 4000 7 days
+
+TRACER1.name         temp
+TRACER1.long_name    Temperature
+TRACER1.units        degrees C
+TRACER1.fill_value   25.0  
+TRACER1.valid_range  0.0    50.0  
+TRACER1.advect       1
+TRACER1.diffuse      1
+TRACER1.diagn        0
+TRACER1.data         inputs/ocean_temp_mth_2060_12-mod.nc
+TRACER1.relaxation_file           inputs/ocean_temp_mth_2060_12-mod.nc
+TRACER1.relaxation_input_dt       1 day
+TRACER1.relaxation_time_constant  exp_depth 1000 100 days 4000 7 days
+
+
+################################## Tracers from rivers ###############################
+
+TRACER2.name         pas
+TRACER2.long_name    Passive tracer
+TRACER2.units        
+TRACER2.fill_value   0.0  
+TRACER2.valid_range  0.0    1.0  
+TRACER2.advect       1
+TRACER2.diffuse      1
+TRACER2.diagn        1
+
+TRACER3.name         nom
+TRACER3.long_name    Normanby
+TRACER3.units        
+TRACER3.fill_value   0.0  
+TRACER3.valid_range  0.0    1.0  
+TRACER3.advect       1
+TRACER3.diffuse      1
+TRACER3.diagn        1
+
+TRACER4.name         mul
+TRACER4.long_name    Mulgrave+Russell
+TRACER4.units        
+TRACER4.fill_value   0.0  
+TRACER4.valid_range  0.0    1.0  
+TRACER4.advect       1
+TRACER4.diffuse      1
+TRACER4.diagn        1
+
+TRACER5.name         jon
+TRACER5.long_name    Johnstone
+TRACER5.units        
+TRACER5.fill_value   0.0  
+TRACER5.valid_range  0.0    1.0  
+TRACER5.advect       1
+TRACER5.diffuse      1
+TRACER5.diagn        1
+
+TRACER6.name         her
+TRACER6.long_name    Herbert
+TRACER6.units        
+TRACER6.fill_value   0.0  
+TRACER6.valid_range  0.0    1.0  
+TRACER6.advect       1
+TRACER6.diffuse      1
+TRACER6.diagn        1
+
+TRACER7.name         bur
+TRACER7.long_name    Burdekin
+TRACER7.units        
+TRACER7.fill_value   0.0  
+TRACER7.valid_range  0.0    1.0  
+TRACER7.advect       1
+TRACER7.diffuse      1
+TRACER7.diagn        1
+
+TRACER8.name         fit
+TRACER8.long_name    Fitzroy
+TRACER8.units        
+TRACER8.fill_value   0.0  
+TRACER8.valid_range  0.0    1.0  
+TRACER8.advect       1
+TRACER8.diffuse      1
+TRACER8.diagn        1
+
+TRACER9.name         mar
+TRACER9.long_name    Mary
+TRACER9.units        
+TRACER9.fill_value   0.0  
+TRACER9.valid_range  0.0    1.0  
+TRACER9.advect       1
+TRACER9.diffuse      1
+TRACER9.diagn        1
+
+TRACER10.name         dai
+TRACER10.long_name    Daintree
+TRACER10.units        
+TRACER10.fill_value   0.0  
+TRACER10.valid_range  0.0    1.0  
+TRACER10.advect       1
+TRACER10.diffuse      1
+TRACER10.diagn        1
+
+TRACER11.name         bar
+TRACER11.long_name    Barron
+TRACER11.units        
+TRACER11.fill_value   0.0  
+TRACER11.valid_range  0.0    1.0  
+TRACER11.advect       1
+TRACER11.diffuse      1
+TRACER11.diagn        1
+
+TRACER12.name         tul
+TRACER12.long_name    Tully
+TRACER12.units        
+TRACER12.fill_value   0.0  
+TRACER12.valid_range  0.0    1.0  
+TRACER12.advect       1
+TRACER12.diffuse      1
+TRACER12.diagn        1
+
+TRACER13.name         hau
+TRACER13.long_name    Haughton
+TRACER13.units        
+TRACER13.fill_value   0.0  
+TRACER13.valid_range  0.0    1.0  
+TRACER13.advect       1
+TRACER13.diffuse      1
+TRACER13.diagn        1
+
+TRACER14.name         don
+TRACER14.long_name    Don
+TRACER14.units        
+TRACER14.fill_value   0.0  
+TRACER14.valid_range  0.0    1.0  
+TRACER14.advect       1
+TRACER14.diffuse      1
+TRACER14.diagn        1
+
+TRACER15.name         con
+TRACER15.long_name    OConnell
+TRACER15.units        
+TRACER15.fill_value   0.0  
+TRACER15.valid_range  0.0    1.0  
+TRACER15.advect       1
+TRACER15.diffuse      1
+TRACER15.diagn        1
+
+TRACER16.name         pio
+TRACER16.long_name    Pioneer
+TRACER16.units        
+TRACER16.fill_value   0.0  
+TRACER16.valid_range  0.0    1.0  
+TRACER16.advect       1
+TRACER16.diffuse      1
+TRACER16.diagn        1
+
+TRACER17.name         bnt
+TRACER17.long_name    Burnett
+TRACER17.units        
+TRACER17.fill_value   0.0  
+TRACER17.valid_range  0.0    1.0  
+TRACER17.advect       1
+TRACER17.diffuse      1
+TRACER17.diagn        1
+
+TRACER18.name         boy
+TRACER18.long_name    Boyne
+TRACER18.units        
+TRACER18.fill_value   0.0  
+TRACER18.valid_range  0.0    1.0  
+TRACER18.advect       1
+TRACER18.diffuse      1
+TRACER18.diagn        1
+
+TRACER19.name         cal
+TRACER19.long_name    Calliope
+TRACER19.units        
+TRACER19.fill_value   0.0  
+TRACER19.valid_range  0.0    1.0  
+TRACER19.advect       1
+TRACER19.diffuse      1
+TRACER19.diagn        1
+
+TRACER20.name         mar
+TRACER20.long_name    Mary
+TRACER20.units        
+TRACER20.fill_value   0.0  
+TRACER20.valid_range  0.0    1.0  
+TRACER20.advect       1
+TRACER20.diffuse      1
+TRACER20.diagn        1
+
+TRACER21.name         mos
+TRACER21.long_name    Mossman
+TRACER21.units        
+TRACER21.fill_value   0.0  
+TRACER21.valid_range  0.0    1.0  
+TRACER21.advect       1
+TRACER21.diffuse      1
+TRACER21.diagn        1
+
+TRACER22.name         end
+TRACER22.long_name    Endeavour
+TRACER22.units        
+TRACER22.fill_value   0.0  
+TRACER22.valid_range  0.0    1.0  
+TRACER22.advect       1
+TRACER22.diffuse      1
+TRACER22.diagn        1
+
+TRACER23.name         ann
+TRACER23.long_name    Annan
+TRACER23.units        
+TRACER23.fill_value   0.0  
+TRACER23.valid_range  0.0    1.0  
+TRACER23.advect       1
+TRACER23.diffuse      1
+TRACER23.diagn        1
+
+
+
+####################################### Diagnostics ###########################################################
+
+TRACER24.name         u1_adv
+TRACER24.long_name    Advective tendency - X
+TRACER24.units        m s-1
+TRACER24.advect       1
+TRACER24.diffuse      1
+TRACER24.diagn        1
+
+TRACER25.name         u2_adv
+TRACER25.long_name    Advective tendency - Y
+TRACER25.units        m s-1
+TRACER25.advect       1
+TRACER25.diffuse      1
+TRACER25.diagn        1
+
+TRACER26.name         u1_hdif
+TRACER26.long_name    Horizontal diffusion tendency - X
+TRACER26.units        m s-1
+TRACER26.advect       1
+TRACER26.diffuse      1
+TRACER26.diagn        1
+
+TRACER27.name         u2_hdif
+TRACER27.long_name    Horizontal diffusion tendency - Y
+TRACER27.units        m s-1
+TRACER27.advect       1
+TRACER27.diffuse      1
+TRACER27.diagn        1
+
+TRACER28.name         u1_vdif
+TRACER28.long_name    Vertical diffusion tendency - X
+TRACER28.units        m s-1
+TRACER28.advect       1
+TRACER28.diffuse      1
+TRACER28.diagn        1
+
+TRACER29.name         u2_vdif
+TRACER29.long_name    Vertical diffusion tendency - Y
+TRACER29.units        m s-1
+TRACER29.advect       1
+TRACER29.diffuse      1
+TRACER29.diagn        1
+
+TRACER30.name         u1_btp
+TRACER30.long_name    Barotropic pressure gradient tendency - X
+TRACER30.units        m s-1
+TRACER30.advect       1
+TRACER30.diffuse      1
+TRACER30.diagn        1
+
+TRACER31.name         u2_btp
+TRACER31.long_name    Barotropic pressure gradient tendency - Y
+TRACER31.units        m s-1
+TRACER31.advect       1
+TRACER31.diffuse      1
+TRACER31.diagn        1
+
+TRACER32.name         u1_bcp
+TRACER32.long_name    Baroclinic pressure gradient tendency - X
+TRACER32.units        m s-1
+TRACER32.advect       1
+TRACER32.diffuse      1
+TRACER32.diagn        1
+
+TRACER33.name         u2_bcp
+TRACER33.long_name    Baroclinic pressure gradient tendency - Y
+TRACER33.units        m s-1
+TRACER33.advect       1
+TRACER33.diffuse      1
+TRACER33.diagn        1
+
+TRACER34.name         u1_cor
+TRACER34.long_name    Coriolis tendency - X
+TRACER34.units        m s-1
+TRACER34.advect       1
+TRACER34.diffuse      1
+TRACER34.diagn        1
+
+TRACER35.name         u2_cor
+TRACER35.long_name    Coriolis tendency - Y
+TRACER35.units        m s-1
+TRACER35.advect       1
+TRACER35.diffuse      1
+TRACER35.diagn        1
+
+
+# Forcing
+SURFACE inputs/ocean_eta_t_mth_2060_12-mod.nc(eta=eta_t)
+
+WIND_TS              inputs/ocean_force_mth_2060_12.nc(wind_u=tau_x)(wind_v=tau_y)
+#WIND_TS              inputs/force-mod.nc(wind_u=tau_x)(wind_v=tau_y)
+WIND_INPUT_DT        31 days
+WIND_SPEED_SCALE     1.0
+DRAG_LAW_V0          10.0
+DRAG_LAW_V1          26.0
+DRAG_LAW_CD0         0.00114
+DRAG_LAW_CD1         0.00218
+
+#fixme
+#PRESSURE             /export/project/GBR4/gbr4_runs/tracers_and_diag/gbr_access.mnc(pressure=mslp)
+#PRESSURE_INPUT_DT    10.0   minutes
+#
+#SALTFLUX                BULK
+#PRECIPITATION           /export/project/GBR4/gbr4_runs/tracers_and_diag/gbr_access.mnc
+#PRECIPITATION_INPUT_DT  1 hour
+#
+#HEATFLUX                ADVANCED
+#AIRTEMP                 /export/project/GBR4/gbr4_runs/tracers_and_diag/gbr_access.mnc(air_temp=sfc_temp)
+#AIRTEMP_INPUT_DT        1 hour
+#CLOUD                   /export/project/GBR4/gbr4_runs/tracers_and_diag/gbr_access.mnc
+#CLOUD_INPUT_DT          1 hour
+#DEW_POINT               /export/project/GBR4/gbr4_runs/tracers_and_diag/gbr_access.mnc(dew_point=dewpt_scrn)
+#DEW_POINT_INPUT_DT      1 hour
+#SWR_TRANSMISSION        0.7
+#SWR_ATTENUATION         0.1
+#SWR_BOT_ABSORB          0.5
+#HEATFLUX_REFH           10.0
+#HEATFLUX_ADVECT         NO
+#BULK_SCHEME             Ko
+
+PORUS_PLATE             /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/reef_frac_i.txt /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/reef_frac_j.txt
+
+TIDE_CSR_CON_DIR /export/databases/SHOC/tides/jhtide2/
+TIDE_CSR_ORTHOWEIGHTS /export/databases/SHOC/tides/ortho_csr_4.0
+
+# Open boundaries
+NBOUNDARIES             28
+
+BOUNDARY0.NAME          East
+BOUNDARY0.TYPE          u2
+BOUNDARY0.BCOND_ELE     NOTHIN|FILEIN|TIDALH
+BOUNDARY0.BCOND0        NEST1WAY inputs/ocean_eta_t_mth_2060_12-mod.nc(eta=eta_t) inputs/ocean_temp_mth_2060_12-mod.nc inputs/ocean_salt_mth_2060_12-mod.nc inputs/uv-mod.nc inputs/uv-mod.nc
+BOUNDARY0.BCOND_TRA_ALL NOGRAD
+BOUNDARY0.FILEIN_DT     3 minutes
+BOUNDARY0.ADJUST_FLUX   12 seconds
+BOUNDARY0.ADJUST_TIDE   6 seconds
+BOUNDARY0.SCALE_ETA     -0.57
+BOUNDARY0.NSPONGE_HORZ  8
+BOUNDARY0.SPONGE_FACT   6
+#BOUNDARY0.BATHY_SMOOTH  8 2
+#BOUNDARY0.BATHY_CON     3
+BOUNDARY0.RANGE         (143,180)-(599,180)
+
+BOUNDARY1.NAME          West
+BOUNDARY1.TYPE          u2
+BOUNDARY1.BCOND_ELE     NOTHIN|FILEIN|TIDALH
+BOUNDARY1.BCOND0        NEST1WAY inputs/ocean_eta_t_mth_2060_12-mod.nc(eta=eta_t) inputs/ocean_temp_mth_2060_12-mod.nc inputs/ocean_salt_mth_2060_12-mod.nc inputs/uv-mod.nc inputs/uv-mod.nc
+BOUNDARY1.BCOND_TRA_ALL NOGRAD
+BOUNDARY1.BCOND_tke     CLAMPD
+BOUNDARY1.BCOND_diss    CLAMPD
+BOUNDARY1.FILEIN_DT     3 minutes
+BOUNDARY1.SCALE_ETA     -0.57
+BOUNDARY1.ADJUST_FLUX   -12 seconds
+BOUNDARY1.ADJUST_TIDE   6 seconds
+BOUNDARY1.NSPONGE_HORZ  8
+BOUNDARY1.SPONGE_FACT   5
+#BOUNDARY1.BATHY_SMOOTH  8 2
+BOUNDARY1.RANGE         (42,0)-(79,0)
+
+BOUNDARY2.NAME          South
+BOUNDARY2.TYPE          u1
+BOUNDARY2.BCOND_ELE     NOTHIN|FILEIN|TIDALH
+BOUNDARY2.BCOND0        NEST1WAY inputs/ocean_eta_t_mth_2060_12-mod.nc(eta=eta_t) inputs/ocean_temp_mth_2060_12-mod.nc inputs/ocean_salt_mth_2060_12-mod.nc inputs/uv-mod.nc inputs/uv-mod.nc
+BOUNDARY2.BCOND_TRA_ALL NOGRAD
+BOUNDARY2.FILEIN_DT     3 minutes
+BOUNDARY2.ADJUST_FLUX   6 seconds
+#BOUNDARY2.ADJUST_TIDE   6 seconds
+BOUNDARY2.SCALE_ETA     -0.57
+BOUNDARY2.NSPONGE_HORZ  16
+BOUNDARY2.SPONGE_FACT   8
+#BOUNDARY2.BATHY_SMOOTH  8 2
+#BOUNDARY2.BATHY_CON     3
+BOUNDARY2.RANGE         (600,98)-(600,179)
+
+BOUNDARY3.NAME          Normanby
+BOUNDARY3.TYPE          u1
+BOUNDARY3.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_normanby_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_normanby_temp.ts
+BOUNDARY3.BCOND_TRA_ALL NOGRAD
+BOUNDARY3.INV_BAR       NO
+BOUNDARY3.BCOND_DIN     TRCONC|CUSTOM
+BOUNDARY3.CUSTOM.DIN    171
+BOUNDARY3.BCOND_nom     TRCONC|CUSTOM
+BOUNDARY3.CUSTOM.nom    1
+BOUNDARY3.BCOND_pas     TRCONC|CUSTOM
+BOUNDARY3.CUSTOM.pas    1
+BOUNDARY3.FILEIN_DT     3 hours
+BOUNDARY3.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY3.CUSTOM.salt   0.0
+BOUNDARY3.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY3.POINTS        1
+170 15
+
+BOUNDARY4.NAME          Daintree
+BOUNDARY4.TYPE          u1
+BOUNDARY4.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_daintree_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_daintree_temp.ts
+BOUNDARY4.BCOND_TRA_ALL NOGRAD
+BOUNDARY4.INV_BAR       NO
+BOUNDARY4.BCOND_DIN     TRCONC|CUSTOM
+BOUNDARY4.CUSTOM.DIN    171
+BOUNDARY4.BCOND_dai     TRCONC|CUSTOM
+BOUNDARY4.CUSTOM.dai    1
+BOUNDARY4.BCOND_pas     TRCONC|CUSTOM
+BOUNDARY4.CUSTOM.pas    1
+BOUNDARY4.FILEIN_DT     3 hours
+BOUNDARY4.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY4.CUSTOM.salt   0.0
+BOUNDARY4.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY4.POINTS        1
+216 27
+
+BOUNDARY5.NAME          Barron
+BOUNDARY5.TYPE          u2
+BOUNDARY5.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_barron_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_barron_temp.ts
+BOUNDARY5.BCOND_TRA_ALL NOGRAD
+BOUNDARY5.INV_BAR       NO
+BOUNDARY5.BCOND_DIN     TRCONC|CUSTOM
+BOUNDARY5.CUSTOM.DIN    171
+BOUNDARY5.BCOND_bar     TRCONC|CUSTOM
+BOUNDARY5.CUSTOM.bar    1
+BOUNDARY5.BCOND_pas     TRCONC|CUSTOM
+BOUNDARY5.CUSTOM.pas    1
+BOUNDARY5.FILEIN_DT     3 hours
+BOUNDARY5.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY5.CUSTOM.salt   0.0
+BOUNDARY5.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY5.POINTS        1
+229 27
+
+BOUNDARY6.NAME          Mulgrave+Russell
+BOUNDARY6.TYPE          u2
+BOUNDARY6.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_russell+mulgrave_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_mulgrave_temp.ts
+BOUNDARY6.BCOND_TRA_ALL NOGRAD
+BOUNDARY6.INV_BAR       NO
+BOUNDARY6.BCOND_DIN     TRCONC|CUSTOM
+BOUNDARY6.CUSTOM.DIN    171
+BOUNDARY6.BCOND_mul     TRCONC|CUSTOM
+BOUNDARY6.CUSTOM.mul    1
+BOUNDARY6.BCOND_pas     TRCONC|CUSTOM
+BOUNDARY6.CUSTOM.pas    1
+BOUNDARY6.FILEIN_DT     3 hours
+BOUNDARY6.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY6.CUSTOM.salt   0.0
+BOUNDARY6.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY6.POINTS        1
+238 27
+
+# Use johnstone north temperature
+BOUNDARY7.NAME          Johnstone
+BOUNDARY7.TYPE          u2
+BOUNDARY7.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_john_north+south_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_johnstone_north_temp.ts
+BOUNDARY7.BCOND_TRA_ALL NOGRAD
+BOUNDARY7.INV_BAR       NO
+BOUNDARY7.BCOND_DIN     TRCONC|CUSTOM
+BOUNDARY7.CUSTOM.DIN    171
+BOUNDARY7.BCOND_jon     TRCONC|CUSTOM
+BOUNDARY7.CUSTOM.jon    1
+BOUNDARY7.BCOND_pas     TRCONC|CUSTOM
+BOUNDARY7.CUSTOM.pas    1
+BOUNDARY7.FILEIN_DT     3 hours
+BOUNDARY7.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY7.CUSTOM.salt   0.0
+BOUNDARY7.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY7.POINTS        1
+245 26
+
+BOUNDARY8.NAME          Tully
+BOUNDARY8.TYPE          u1
+BOUNDARY8.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_tully_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_tully_temp.ts
+BOUNDARY8.BCOND_TRA_ALL NOGRAD
+BOUNDARY8.INV_BAR       NO
+BOUNDARY8.BCOND_DIN     TRCONC|CUSTOM
+BOUNDARY8.CUSTOM.DIN    171
+BOUNDARY8.BCOND_tul     TRCONC|CUSTOM
+BOUNDARY8.CUSTOM.tul    1
+BOUNDARY8.BCOND_pas     TRCONC|CUSTOM
+BOUNDARY8.CUSTOM.pas    1
+BOUNDARY8.FILEIN_DT     3 hours
+BOUNDARY8.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY8.CUSTOM.salt   0.0
+BOUNDARY8.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY8.POINTS        1
+254 21
+
+# No temp, use tully
+BOUNDARY9.NAME          Herbert
+BOUNDARY9.TYPE          u2
+BOUNDARY9.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_herbert_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_tully_temp.ts
+BOUNDARY9.BCOND_TRA_ALL NOGRAD
+BOUNDARY9.INV_BAR       NO
+BOUNDARY9.BCOND_DIN     TRCONC|CUSTOM
+BOUNDARY9.CUSTOM.DIN    171
+BOUNDARY9.BCOND_her     TRCONC|CUSTOM
+BOUNDARY9.CUSTOM.her    1
+BOUNDARY9.BCOND_pas     TRCONC|CUSTOM
+BOUNDARY9.CUSTOM.pas    1
+BOUNDARY9.FILEIN_DT     3 hours
+BOUNDARY9.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY9.CUSTOM.salt   0.0
+BOUNDARY9.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY9.POINTS        1
+264 20
+
+BOUNDARY10.NAME          Haughton
+BOUNDARY10.TYPE          u2
+BOUNDARY10.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_haughton_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_haughton_temp.ts
+BOUNDARY10.BCOND_TRA_ALL NOGRAD
+BOUNDARY10.INV_BAR       NO
+BOUNDARY10.BCOND_DIN     TRCONC|CUSTOM
+BOUNDARY10.CUSTOM.DIN    197
+BOUNDARY10.BCOND_hau     TRCONC|CUSTOM
+BOUNDARY10.CUSTOM.hau    1
+BOUNDARY10.BCOND_pas     TRCONC|CUSTOM
+BOUNDARY10.CUSTOM.pas    1
+BOUNDARY10.FILEIN_DT     3 hours
+BOUNDARY10.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY10.CUSTOM.salt   0.0
+BOUNDARY10.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY10.POINTS        1
+286 22
+
+BOUNDARY11.NAME          Burdekin
+BOUNDARY11.TYPE          u1
+BOUNDARY11.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_burdekin_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_burdekin_temp.ts
+BOUNDARY11.BCOND_TRA_ALL NOGRAD
+BOUNDARY11.INV_BAR       NO
+BOUNDARY11.BCOND_DIN     TRCONC|CUSTOM
+BOUNDARY11.CUSTOM.DIN    197
+BOUNDARY11.BCOND_bur     TRCONC|CUSTOM
+BOUNDARY11.CUSTOM.bur    1
+BOUNDARY11.BCOND_pas     TRCONC|CUSTOM
+BOUNDARY11.CUSTOM.pas    1
+BOUNDARY11.FILEIN_DT     3 hours
+BOUNDARY11.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY11.CUSTOM.salt   0.0
+BOUNDARY11.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY11.POINTS        1
+298 23
+
+# No temp, use oconnell
+BOUNDARY12.NAME          Don
+BOUNDARY12.TYPE          u2
+BOUNDARY12.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_don_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_oconnell_temp.ts
+BOUNDARY12.BCOND_TRA_ALL NOGRAD
+BOUNDARY12.INV_BAR       NO
+BOUNDARY12.BCOND_DIN     TRCONC|CUSTOM
+BOUNDARY12.CUSTOM.DIN    197
+BOUNDARY12.BCOND_don     TRCONC|CUSTOM
+BOUNDARY12.CUSTOM.don    1
+BOUNDARY12.BCOND_pas     TRCONC|CUSTOM
+BOUNDARY12.CUSTOM.pas    1
+BOUNDARY12.FILEIN_DT     3 hours
+BOUNDARY12.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY12.CUSTOM.salt   0.0
+BOUNDARY12.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY12.POINTS        1
+314 29
+
+BOUNDARY13.NAME          OConnell
+BOUNDARY13.TYPE          u1
+BOUNDARY13.BCOND0        RIVER  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_oconnell_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_oconnell_temp.ts
+BOUNDARY13.BCOND_TRA_ALL NOGRAD
+BOUNDARY13.INV_BAR       NO
+BOUNDARY13.BCOND_DIN     TRCONC|CUSTOM
+BOUNDARY13.CUSTOM.DIN    197
+BOUNDARY13.BCOND_con     TRCONC|CUSTOM
+BOUNDARY13.CUSTOM.con    1
+BOUNDARY13.BCOND_pas     TRCONC|CUSTOM
+BOUNDARY13.CUSTOM.pas    1
+BOUNDARY13.FILEIN_DT     3 hours
+BOUNDARY13.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY13.CUSTOM.salt   0.0
+BOUNDARY13.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY13.POINTS        1
+337 26
+
+# No temp, use oconnell
+BOUNDARY14.NAME          Pioneer
+BOUNDARY14.TYPE          u1
+BOUNDARY14.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_pioneer_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_oconnell_temp.ts
+BOUNDARY14.BCOND_TRA_ALL NOGRAD
+BOUNDARY14.INV_BAR       NO
+BOUNDARY14.BCOND_DIN     TRCONC|CUSTOM
+BOUNDARY14.CUSTOM.DIN    197
+BOUNDARY14.BCOND_pio     TRCONC|CUSTOM
+BOUNDARY14.CUSTOM.pio    1
+BOUNDARY14.BCOND_pas     TRCONC|CUSTOM
+BOUNDARY14.CUSTOM.pas    1
+BOUNDARY14.FILEIN_DT     3 hours
+BOUNDARY14.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY14.CUSTOM.salt   0.0
+BOUNDARY14.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY14.POINTS        1
+363 31
+
+BOUNDARY15.NAME          Fitzroy
+BOUNDARY15.TYPE          u2
+BOUNDARY15.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_fitzroy_flow.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_fitzroy_temp.ts
+BOUNDARY15.BCOND1        NEST2WAY /home/cem/gbr4/fitz/fitz_ets.mpk /home/cem/gbr4/fitz/fitz_uv_nor.mpk /home/cem/gbr4/fitz/fitz_uv_tan.mpk
+BOUNDARY15.BCOND_TRA_ALL NOGRAD
+BOUNDARY15.INV_BAR       NO
+BOUNDARY15.BCOND_DIN     TRCONC|CUSTOM
+BOUNDARY15.CUSTOM.DIN    197
+BOUNDARY15.BCOND_fit     TRCONC|CUSTOM
+BOUNDARY15.CUSTOM.fit    1
+BOUNDARY15.BCOND_pas     TRCONC|CUSTOM
+BOUNDARY15.CUSTOM.pas    1
+BOUNDARY15.FILEIN_DT     3 hours
+BOUNDARY15.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY15.CUSTOM.salt   0.0
+BOUNDARY15.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY15.POINTS        1
+437 55
+
+BOUNDARY16.NAME          Burnett
+BOUNDARY16.TYPE          u2
+BOUNDARY16.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_burnett_flow.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_burnett_temp.ts
+BOUNDARY16.BCOND_TRA_ALL NOGRAD
+BOUNDARY16.INV_BAR       NO
+BOUNDARY16.BCOND_DIN     TRCONC|CUSTOM
+BOUNDARY16.CUSTOM.DIN    197
+BOUNDARY16.BCOND_bnt     TRCONC|CUSTOM
+BOUNDARY16.CUSTOM.bnt    1
+BOUNDARY16.BCOND_pas     TRCONC|CUSTOM
+BOUNDARY16.CUSTOM.pas    1
+BOUNDARY16.FILEIN_DT     3 hours
+BOUNDARY16.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY16.CUSTOM.salt   0.0
+BOUNDARY16.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY16.POINTS        1
+482 77
+
+BOUNDARY17.NAME          Mary
+BOUNDARY17.TYPE          u2
+BOUNDARY17.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_mary_flow.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_mary_temp.ts
+BOUNDARY17.BCOND_TRA_ALL NOGRAD
+BOUNDARY17.INV_BAR       NO
+BOUNDARY17.BCOND_DIN     TRCONC|CUSTOM
+BOUNDARY17.CUSTOM.DIN    197
+BOUNDARY17.BCOND_mar     TRCONC|CUSTOM
+BOUNDARY17.CUSTOM.mar    1
+BOUNDARY17.BCOND_pas     TRCONC|CUSTOM
+BOUNDARY17.CUSTOM.pas    1
+BOUNDARY17.FILEIN_DT     3 hours
+BOUNDARY17.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY17.CUSTOM.salt   0.0
+BOUNDARY17.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY17.POINTS        1
+505 87
+
+BOUNDARY18.NAME          Fly
+BOUNDARY18.TYPE          u2
+BOUNDARY18.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_fly.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_fly.ts
+BOUNDARY18.BCOND_TRA_ALL NOGRAD
+BOUNDARY18.INV_BAR       NO
+BOUNDARY18.BCOND_DIN     TRCONC|CUSTOM
+BOUNDARY18.CUSTOM.DIN    197
+BOUNDARY18.BCOND_mar     TRCONC|CUSTOM
+BOUNDARY18.CUSTOM.mar    1
+BOUNDARY18.BCOND_pas     TRCONC|CUSTOM
+BOUNDARY18.CUSTOM.pas    1
+BOUNDARY18.FILEIN_DT     3 hours
+BOUNDARY18.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY18.CUSTOM.salt   0.0
+BOUNDARY18.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY18.POINTS        1
+11 6
+
+BOUNDARY19.NAME          Calliope
+BOUNDARY19.TYPE          u2
+BOUNDARY19.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_calliope_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_calliope_temp.ts
+BOUNDARY19.BCOND_TRA_ALL NOGRAD
+BOUNDARY19.INV_BAR       NO
+BOUNDARY19.BCOND_DIN     TRCONC|CUSTOM
+BOUNDARY19.CUSTOM.DIN    197
+BOUNDARY19.BCOND_mar     TRCONC|CUSTOM
+BOUNDARY19.CUSTOM.mar    1
+BOUNDARY19.BCOND_pas     TRCONC|CUSTOM
+BOUNDARY19.CUSTOM.pas    1
+BOUNDARY19.FILEIN_DT     3 hours
+BOUNDARY19.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY19.CUSTOM.salt   0.0
+BOUNDARY19.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY19.POINTS        1
+446 59
+
+# No temp, use calliope
+BOUNDARY20.NAME          Boyne
+BOUNDARY20.TYPE          u2
+BOUNDARY20.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_boyne.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_calliope_temp.ts
+BOUNDARY20.BCOND_TRA_ALL NOGRAD
+BOUNDARY20.INV_BAR       NO
+BOUNDARY20.BCOND_DIN     TRCONC|CUSTOM
+BOUNDARY20.CUSTOM.DIN    197
+BOUNDARY20.BCOND_mar     TRCONC|CUSTOM
+BOUNDARY20.CUSTOM.mar    1
+BOUNDARY20.BCOND_pas     TRCONC|CUSTOM
+BOUNDARY20.CUSTOM.pas    1
+BOUNDARY20.FILEIN_DT     3 hours
+BOUNDARY20.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY20.CUSTOM.salt   0.0
+BOUNDARY20.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY20.POINTS        1
+449 60
+
+BOUNDARY21.NAME          Caboolture
+BOUNDARY21.TYPE          u2
+BOUNDARY21.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_caboolture_flow.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_caboolture_temp.ts 
+BOUNDARY21.BCOND_TRA_ALL NOGRAD
+BOUNDARY21.INV_BAR       NO
+BOUNDARY21.BCOND_DIN     CUSTOM
+BOUNDARY21.CUSTOM.DIN    197
+BOUNDARY21.FILEIN_DT     3 hours
+BOUNDARY21.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY21.CUSTOM.salt   0.0
+BOUNDARY21.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY21.POINTS        1
+555 87
+
+BOUNDARY22.NAME          Pine
+BOUNDARY22.TYPE          u2
+BOUNDARY22.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_pine_flow.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_pine_temp.ts
+BOUNDARY22.BCOND_TRA_ALL NOGRAD
+BOUNDARY22.INV_BAR       NO
+BOUNDARY22.BCOND_DIN     CUSTOM
+BOUNDARY22.CUSTOM.DIN    197
+BOUNDARY22.FILEIN_DT     3 hours
+BOUNDARY22.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY22.CUSTOM.salt   0.0
+BOUNDARY22.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY22.POINTS        1
+559 87
+
+# Brisbane temps look dodgy, use bremer only
+BOUNDARY23.NAME          Brisbane+Bremer
+BOUNDARY23.TYPE          u2
+BOUNDARY23.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_brisbane+bremer_flow.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_bremer_temp.ts
+BOUNDARY23.BCOND_TRA_ALL NOGRAD
+BOUNDARY23.INV_BAR       NO
+BOUNDARY23.BCOND_DIN     CUSTOM
+BOUNDARY23.CUSTOM.DIN    197
+BOUNDARY23.FILEIN_DT     3 hours
+BOUNDARY23.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY23.CUSTOM.salt   0.0
+BOUNDARY23.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY23.POINTS        1
+561 89
+
+BOUNDARY24.NAME          Logan+Albert
+BOUNDARY24.TYPE          u2
+BOUNDARY24.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_logan+albert_flow.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_logan_temp.ts
+BOUNDARY24.BCOND_TRA_ALL NOGRAD
+BOUNDARY24.INV_BAR       NO
+BOUNDARY24.BCOND_DIN     CUSTOM
+BOUNDARY24.CUSTOM.DIN    197
+BOUNDARY24.FILEIN_DT     3 hours
+BOUNDARY24.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY24.CUSTOM.salt   0.0
+BOUNDARY24.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY24.POINTS        1
+569 92
+
+BOUNDARY25.NAME          Mossman
+BOUNDARY25.TYPE          u2
+BOUNDARY25.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_mossman_flow.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_mossman_temp.ts
+BOUNDARY25.BCOND_TRA_ALL NOGRAD
+BOUNDARY25.INV_BAR       NO
+BOUNDARY25.BCOND_DIN     TRCONC|CUSTOM
+BOUNDARY25.CUSTOM.DIN    197
+BOUNDARY25.BCOND_mos     TRCONC|CUSTOM
+BOUNDARY25.CUSTOM.mos    1
+BOUNDARY25.BCOND_pas     TRCONC|CUSTOM
+BOUNDARY25.CUSTOM.pas    1
+BOUNDARY25.FILEIN_DT     3 hours
+BOUNDARY25.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY25.CUSTOM.salt   0.0
+BOUNDARY25.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY25.POINTS        1
+218 25
+
+## no temp, using annan
+BOUNDARY26.NAME          Endeavour
+BOUNDARY26.TYPE          u2
+BOUNDARY26.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_endeavour_flow.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_annan_temp.ts
+BOUNDARY26.BCOND_TRA_ALL NOGRAD
+BOUNDARY26.INV_BAR       NO
+BOUNDARY26.BCOND_DIN     TRCONC|CUSTOM
+BOUNDARY26.CUSTOM.DIN    197
+BOUNDARY26.BCOND_end     TRCONC|CUSTOM
+BOUNDARY26.CUSTOM.end    1
+BOUNDARY26.BCOND_pas     TRCONC|CUSTOM
+BOUNDARY26.CUSTOM.pas    1
+BOUNDARY26.FILEIN_DT     3 hours
+BOUNDARY26.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY26.CUSTOM.salt   0.0
+BOUNDARY26.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY26.POINTS        1
+198 31
+
+BOUNDARY27.NAME          Annan
+BOUNDARY27.TYPE          u2
+BOUNDARY27.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_annan_flow.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_annan_temp.ts
+BOUNDARY27.BCOND_TRA_ALL NOGRAD
+BOUNDARY27.INV_BAR       NO
+BOUNDARY27.BCOND_DIN     TRCONC|CUSTOM
+BOUNDARY27.CUSTOM.DIN    197
+BOUNDARY27.BCOND_ann     TRCONC|CUSTOM
+BOUNDARY27.CUSTOM.ann    1
+BOUNDARY27.BCOND_pas     TRCONC|CUSTOM
+BOUNDARY27.CUSTOM.pas    1
+BOUNDARY27.FILEIN_DT     3 hours
+BOUNDARY27.BCOND_salt    TRCONC|CUSTOM
+BOUNDARY27.CUSTOM.salt   0.0
+BOUNDARY27.OPTIONS       GEOSTR DYNAMIC_HC UPSTRM NO_HDIFF
+BOUNDARY27.POINTS        1
+200 31
+
+
+BATHYEXTFILE /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/bathymetry_gbr4.txt
+COORDFILE /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/coordinates_gbr4.txt
