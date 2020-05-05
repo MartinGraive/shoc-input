@@ -604,8 +604,8 @@ TRACER35.diagn        1
 SURFACE inputs/ocean_eta_t_mth_2060_12-mod.nc(eta=eta_t)
 
 WIND_TS              inputs/ocean_force_mth_2060_12.nc(wind_u=tau_x)(wind_v=tau_y)
-#WIND_TS              inputs/force-mod.nc(wind_u=tau_x)(wind_v=tau_y)
 WIND_INPUT_DT        31 days
+WIND_TYPE            STRESS
 WIND_SPEED_SCALE     1.0
 DRAG_LAW_V0          10.0
 DRAG_LAW_V1          26.0
