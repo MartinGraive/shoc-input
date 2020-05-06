@@ -86,6 +86,7 @@ SMAG_SMOOTH          1
 
 # Vertical mixing
 MIXING_SCHEME        k-e
+# VZ0 1e-5 for k-e?
 VZ0                  1.0000e-04
 KZ0                  1.0000e-05
 ZS                   0.1
