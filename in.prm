@@ -10,10 +10,9 @@ START_TIME           29935.917 days
 STOP_TIME            29945.5 days
 RAMPSTART            29935.917 days
 RAMPEND              29939 days
-# INVBARO?
+# INV_BARO?
 RAMPVARS             WIND TIDALH CUSTOM FILEIN 
 ID_NUMBER            1.85
-REVISION             $Revision: 1120 $
 
 INPUT_FILE           inputs/in7.nc
 
@@ -43,7 +42,7 @@ file2.bytespervalue  4
 file2.vars           eta u v
 
 file3.name           outputs/out_simple.nc
-file2.filetype       simple_cf
+file3.filetype       simple_cf
 file3.tinc           86400.0 seconds
 file3.bytespervalue  4
 file3.vars           ALL
