@@ -633,6 +633,8 @@ DRAG_LAW_CD1         0.00218
 #HEATFLUX_REFH           10.0
 #HEATFLUX_ADVECT         NO
 #BULK_SCHEME             Ko
+HEATFLUX NONE
+SALTFLUX NONE
 
 PORUS_PLATE             /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/reef_frac_i.txt /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/reef_frac_j.txt
 
