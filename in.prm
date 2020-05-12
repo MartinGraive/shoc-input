@@ -7,9 +7,9 @@ OUTPUT_TIMEUNIT      days since 1979-01-01 00:00:00 +10
 LENUNIT              metre
 # 16 Dec 2060
 START_TIME           29935.917 days
-STOP_TIME            29945.5 days
+STOP_TIME            29945.917 days
 RAMPSTART            29935.917 days
-RAMPEND              29939 days
+RAMPEND              29936.5 days
 # INV_BARO?
 RAMPVARS             WIND TIDALH CUSTOM FILEIN 
 ID_NUMBER            1.85
