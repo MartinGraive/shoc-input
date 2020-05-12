@@ -14,7 +14,7 @@ RAMPEND              29936.5 days
 RAMPVARS             WIND TIDALH CUSTOM FILEIN 
 ID_NUMBER            1.85
 
-INPUT_FILE           inputs/in7.nc
+INPUT_FILE           inputs/in2.nc
 
 #RESTART_NAME	      inputs/restart.nc 
 #RESTART_DT           1 days
@@ -603,7 +603,7 @@ TRACER35.diagn        1
 # Forcing
 SURFACE inputs/ocean_eta_t_mth_2060_12-mod.nc(eta=eta_t)
 
-WIND_TS              inputs/ocean_force_mth_2060_12.nc(wind_u=tau_x)(wind_v=tau_y)
+WIND_TS              inputs/wind_stress.nc
 WIND_INPUT_DT        31 days
 WIND_TYPE            STRESS
 WIND_SPEED_SCALE     1.0
