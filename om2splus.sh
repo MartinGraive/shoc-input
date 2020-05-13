@@ -10,7 +10,6 @@ STANDARD=`ncdump -h $1 | grep "$2:standard_name" | sed -E "s/.*$2\:standard_name
 
 ncks -v $2 $1 $FILE
 ncrename -v $2,eta_t $FILE
-echo $( dirname "$0" )/oceanmaps2shoc $FILE $FILE $3 $4 $5 $6 coord2d
 $( dirname "$0" )/oceanmaps2shoc $FILE $2-mod-tmp.nc $3 $4 $5 $6 coord2d
 mv $2-mod-tmp.nc $FILE
 ncrename -v eta_t,$2 $FILE 
