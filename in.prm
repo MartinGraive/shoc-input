@@ -638,7 +638,11 @@ HEATFLUX              COMP_HEAT_MOM
 HEATFLUX_FILE         inputs/heatflux/heatflux.nc
 #HEATFLUX_DT
 
-SALTFLUX NONE
+SALTFLUX BULK
+PRECIPITATION         inputs/lprec-mod.nc
+#PRECIPITATION_INPUT_DT 31 days
+EVAPORATION           inputs/heatflux/evap-mod.nc
+#EVAPORATION_INPUT_DT  31 days
 
 
 PORUS_PLATE             /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/reef_frac_i.txt /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/reef_frac_j.txt
