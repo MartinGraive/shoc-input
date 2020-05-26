@@ -922,7 +922,7 @@ BOUNDARY14.POINTS        1
 BOUNDARY15.NAME          Fitzroy
 BOUNDARY15.TYPE          u2
 BOUNDARY15.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_fitzroy_flow.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_fitzroy_temp.ts
-BOUNDARY15.BCOND1        NEST2WAY /home/cem/gbr4/fitz/fitz_ets.mpk /home/cem/gbr4/fitz/fitz_uv_nor.mpk /home/cem/gbr4/fitz/fitz_uv_tan.mpk
+#BOUNDARY15.BCOND1        NEST2WAY /home/cem/gbr4/fitz/fitz_ets.mpk /home/cem/gbr4/fitz/fitz_uv_nor.mpk /home/cem/gbr4/fitz/fitz_uv_tan.mpk
 BOUNDARY15.BCOND_TRA_ALL NOGRAD
 BOUNDARY15.INV_BAR       NO
 BOUNDARY15.BCOND_DIN     TRCONC|CUSTOM
