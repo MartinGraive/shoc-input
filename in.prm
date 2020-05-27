@@ -615,35 +615,16 @@ DRAG_LAW_CD1         0.00218
 #fixme
 #PRESSURE             /export/project/GBR4/gbr4_runs/tracers_and_diag/gbr_access.mnc(pressure=mslp)
 #PRESSURE_INPUT_DT    10.0   minutes
-#
-#SALTFLUX                BULK
-#PRECIPITATION           /export/project/GBR4/gbr4_runs/tracers_and_diag/gbr_access.mnc
-#PRECIPITATION_INPUT_DT  1 hour
-#
-#HEATFLUX                ADVANCED
-#AIRTEMP                 /export/project/GBR4/gbr4_runs/tracers_and_diag/gbr_access.mnc(air_temp=sfc_temp)
-#AIRTEMP_INPUT_DT        1 hour
-#CLOUD                   /export/project/GBR4/gbr4_runs/tracers_and_diag/gbr_access.mnc
-#CLOUD_INPUT_DT          1 hour
-#DEW_POINT               /export/project/GBR4/gbr4_runs/tracers_and_diag/gbr_access.mnc(dew_point=dewpt_scrn)
-#DEW_POINT_INPUT_DT      1 hour
-#SWR_TRANSMISSION        0.7
-#SWR_ATTENUATION         0.1
-#SWR_BOT_ABSORB          0.5
-#HEATFLUX_REFH           10.0
-#HEATFLUX_ADVECT         NO
-#BULK_SCHEME             Ko
 
 HEATFLUX              COMP_HEAT_MOM
 HEATFLUX_FILE         inputs/heatflux/heatflux.nc
-#HEATFLUX_DT
+#HEATFLUX_DT           31 days
 
 SALTFLUX BULK
 PRECIPITATION         inputs/lprec-mod.nc
 #PRECIPITATION_INPUT_DT 31 days
 EVAPORATION           inputs/heatflux/evap-mod.nc
 #EVAPORATION_INPUT_DT  31 days
-
 
 PORUS_PLATE             /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/reef_frac_i.txt /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/reef_frac_j.txt
 
@@ -701,7 +682,7 @@ BOUNDARY2.RANGE         (600,98)-(600,179)
 
 BOUNDARY3.NAME          Normanby
 BOUNDARY3.TYPE          u1
-BOUNDARY3.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_normanby_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_normanby_temp.ts
+BOUNDARY3.BCOND0        RIVER inputs/rivers/gbr_normanby_flow.ts inputs/rivers/gbr_normanby_temp.ts
 BOUNDARY3.BCOND_TRA_ALL NOGRAD
 BOUNDARY3.INV_BAR       NO
 BOUNDARY3.BCOND_DIN     TRCONC|CUSTOM
@@ -719,7 +700,7 @@ BOUNDARY3.POINTS        1
 
 BOUNDARY4.NAME          Daintree
 BOUNDARY4.TYPE          u1
-BOUNDARY4.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_daintree_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_daintree_temp.ts
+BOUNDARY4.BCOND0        RIVER inputs/rivers/gbr_daintree_flow.ts inputs/rivers/gbr_daintree_temp.ts
 BOUNDARY4.BCOND_TRA_ALL NOGRAD
 BOUNDARY4.INV_BAR       NO
 BOUNDARY4.BCOND_DIN     TRCONC|CUSTOM
@@ -737,7 +718,7 @@ BOUNDARY4.POINTS        1
 
 BOUNDARY5.NAME          Barron
 BOUNDARY5.TYPE          u2
-BOUNDARY5.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_barron_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_barron_temp.ts
+BOUNDARY5.BCOND0        RIVER inputs/rivers/gbr_barron_flow.ts inputs/rivers/gbr_barron_temp.ts
 BOUNDARY5.BCOND_TRA_ALL NOGRAD
 BOUNDARY5.INV_BAR       NO
 BOUNDARY5.BCOND_DIN     TRCONC|CUSTOM
@@ -755,7 +736,7 @@ BOUNDARY5.POINTS        1
 
 BOUNDARY6.NAME          Mulgrave+Russell
 BOUNDARY6.TYPE          u2
-BOUNDARY6.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_russell+mulgrave_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_mulgrave_temp.ts
+BOUNDARY6.BCOND0        RIVER inputs/rivers/gbr_russell+mulgrave_flow.ts inputs/rivers/gbr_mulgrave_temp.ts
 BOUNDARY6.BCOND_TRA_ALL NOGRAD
 BOUNDARY6.INV_BAR       NO
 BOUNDARY6.BCOND_DIN     TRCONC|CUSTOM
@@ -774,7 +755,7 @@ BOUNDARY6.POINTS        1
 # Use johnstone north temperature
 BOUNDARY7.NAME          Johnstone
 BOUNDARY7.TYPE          u2
-BOUNDARY7.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_john_north+south_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_johnstone_north_temp.ts
+BOUNDARY7.BCOND0        RIVER inputs/rivers/gbr_john_north+south_flow.ts inputs/rivers/gbr_johnstone_north_temp.ts
 BOUNDARY7.BCOND_TRA_ALL NOGRAD
 BOUNDARY7.INV_BAR       NO
 BOUNDARY7.BCOND_DIN     TRCONC|CUSTOM
@@ -792,7 +773,7 @@ BOUNDARY7.POINTS        1
 
 BOUNDARY8.NAME          Tully
 BOUNDARY8.TYPE          u1
-BOUNDARY8.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_tully_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_tully_temp.ts
+BOUNDARY8.BCOND0        RIVER inputs/rivers/gbr_tully_flow.ts inputs/rivers/gbr_tully_temp.ts
 BOUNDARY8.BCOND_TRA_ALL NOGRAD
 BOUNDARY8.INV_BAR       NO
 BOUNDARY8.BCOND_DIN     TRCONC|CUSTOM
@@ -811,7 +792,7 @@ BOUNDARY8.POINTS        1
 # No temp, use tully
 BOUNDARY9.NAME          Herbert
 BOUNDARY9.TYPE          u2
-BOUNDARY9.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_herbert_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_tully_temp.ts
+BOUNDARY9.BCOND0        RIVER inputs/rivers/gbr_herbert_flow.ts inputs/rivers/gbr_tully_temp.ts
 BOUNDARY9.BCOND_TRA_ALL NOGRAD
 BOUNDARY9.INV_BAR       NO
 BOUNDARY9.BCOND_DIN     TRCONC|CUSTOM
@@ -829,7 +810,7 @@ BOUNDARY9.POINTS        1
 
 BOUNDARY10.NAME          Haughton
 BOUNDARY10.TYPE          u2
-BOUNDARY10.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_haughton_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_haughton_temp.ts
+BOUNDARY10.BCOND0        RIVER inputs/rivers/gbr_haughton_flow.ts inputs/rivers/gbr_haughton_temp.ts
 BOUNDARY10.BCOND_TRA_ALL NOGRAD
 BOUNDARY10.INV_BAR       NO
 BOUNDARY10.BCOND_DIN     TRCONC|CUSTOM
@@ -847,7 +828,7 @@ BOUNDARY10.POINTS        1
 
 BOUNDARY11.NAME          Burdekin
 BOUNDARY11.TYPE          u1
-BOUNDARY11.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_burdekin_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_burdekin_temp.ts
+BOUNDARY11.BCOND0        RIVER inputs/rivers/gbr_burdekin_flow.ts inputs/rivers/gbr_burdekin_temp.ts
 BOUNDARY11.BCOND_TRA_ALL NOGRAD
 BOUNDARY11.INV_BAR       NO
 BOUNDARY11.BCOND_DIN     TRCONC|CUSTOM
@@ -866,7 +847,7 @@ BOUNDARY11.POINTS        1
 # No temp, use oconnell
 BOUNDARY12.NAME          Don
 BOUNDARY12.TYPE          u2
-BOUNDARY12.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_don_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_oconnell_temp.ts
+BOUNDARY12.BCOND0        RIVER inputs/rivers/gbr_don_flow.ts inputs/rivers/gbr_oconnell_temp.ts
 BOUNDARY12.BCOND_TRA_ALL NOGRAD
 BOUNDARY12.INV_BAR       NO
 BOUNDARY12.BCOND_DIN     TRCONC|CUSTOM
@@ -884,7 +865,7 @@ BOUNDARY12.POINTS        1
 
 BOUNDARY13.NAME          OConnell
 BOUNDARY13.TYPE          u1
-BOUNDARY13.BCOND0        RIVER  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_oconnell_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_oconnell_temp.ts
+BOUNDARY13.BCOND0        RIVER  inputs/rivers/gbr_oconnell_flow.ts inputs/rivers/gbr_oconnell_temp.ts
 BOUNDARY13.BCOND_TRA_ALL NOGRAD
 BOUNDARY13.INV_BAR       NO
 BOUNDARY13.BCOND_DIN     TRCONC|CUSTOM
@@ -903,7 +884,7 @@ BOUNDARY13.POINTS        1
 # No temp, use oconnell
 BOUNDARY14.NAME          Pioneer
 BOUNDARY14.TYPE          u1
-BOUNDARY14.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_pioneer_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_oconnell_temp.ts
+BOUNDARY14.BCOND0        RIVER inputs/rivers/gbr_pioneer_flow.ts inputs/rivers/gbr_oconnell_temp.ts
 BOUNDARY14.BCOND_TRA_ALL NOGRAD
 BOUNDARY14.INV_BAR       NO
 BOUNDARY14.BCOND_DIN     TRCONC|CUSTOM
@@ -921,7 +902,7 @@ BOUNDARY14.POINTS        1
 
 BOUNDARY15.NAME          Fitzroy
 BOUNDARY15.TYPE          u2
-BOUNDARY15.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_fitzroy_flow.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_fitzroy_temp.ts
+BOUNDARY15.BCOND0        RIVER inputs/rivers/gbr_fitzroy_flow.ts  inputs/rivers/gbr_fitzroy_temp.ts
 #BOUNDARY15.BCOND1        NEST2WAY /home/cem/gbr4/fitz/fitz_ets.mpk /home/cem/gbr4/fitz/fitz_uv_nor.mpk /home/cem/gbr4/fitz/fitz_uv_tan.mpk
 BOUNDARY15.BCOND_TRA_ALL NOGRAD
 BOUNDARY15.INV_BAR       NO
@@ -940,7 +921,7 @@ BOUNDARY15.POINTS        1
 
 BOUNDARY16.NAME          Burnett
 BOUNDARY16.TYPE          u2
-BOUNDARY16.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_burnett_flow.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_burnett_temp.ts
+BOUNDARY16.BCOND0        RIVER inputs/rivers/gbr_burnett_flow.ts  inputs/rivers/gbr_burnett_temp.ts
 BOUNDARY16.BCOND_TRA_ALL NOGRAD
 BOUNDARY16.INV_BAR       NO
 BOUNDARY16.BCOND_DIN     TRCONC|CUSTOM
@@ -958,7 +939,7 @@ BOUNDARY16.POINTS        1
 
 BOUNDARY17.NAME          Mary
 BOUNDARY17.TYPE          u2
-BOUNDARY17.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_mary_flow.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_mary_temp.ts
+BOUNDARY17.BCOND0        RIVER inputs/rivers/gbr_mary_flow.ts  inputs/rivers/gbr_mary_temp.ts
 BOUNDARY17.BCOND_TRA_ALL NOGRAD
 BOUNDARY17.INV_BAR       NO
 BOUNDARY17.BCOND_DIN     TRCONC|CUSTOM
@@ -976,7 +957,7 @@ BOUNDARY17.POINTS        1
 
 BOUNDARY18.NAME          Fly
 BOUNDARY18.TYPE          u2
-BOUNDARY18.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_fly.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_fly.ts
+BOUNDARY18.BCOND0        RIVER inputs/rivers/gbr_fly_flow.ts  inputs/rivers/gbr_fly_temp.ts
 BOUNDARY18.BCOND_TRA_ALL NOGRAD
 BOUNDARY18.INV_BAR       NO
 BOUNDARY18.BCOND_DIN     TRCONC|CUSTOM
@@ -994,7 +975,7 @@ BOUNDARY18.POINTS        1
 
 BOUNDARY19.NAME          Calliope
 BOUNDARY19.TYPE          u2
-BOUNDARY19.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_calliope_flow.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_calliope_temp.ts
+BOUNDARY19.BCOND0        RIVER inputs/rivers/gbr_calliope_flow.ts inputs/rivers/gbr_calliope_temp.ts
 BOUNDARY19.BCOND_TRA_ALL NOGRAD
 BOUNDARY19.INV_BAR       NO
 BOUNDARY19.BCOND_DIN     TRCONC|CUSTOM
@@ -1013,7 +994,7 @@ BOUNDARY19.POINTS        1
 # No temp, use calliope
 BOUNDARY20.NAME          Boyne
 BOUNDARY20.TYPE          u2
-BOUNDARY20.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_boyne.ts /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_calliope_temp.ts
+BOUNDARY20.BCOND0        RIVER inputs/rivers/gbr_boyne_flow.ts inputs/rivers/gbr_calliope_temp.ts
 BOUNDARY20.BCOND_TRA_ALL NOGRAD
 BOUNDARY20.INV_BAR       NO
 BOUNDARY20.BCOND_DIN     TRCONC|CUSTOM
@@ -1031,7 +1012,7 @@ BOUNDARY20.POINTS        1
 
 BOUNDARY21.NAME          Caboolture
 BOUNDARY21.TYPE          u2
-BOUNDARY21.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_caboolture_flow.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_caboolture_temp.ts 
+BOUNDARY21.BCOND0        RIVER inputs/rivers/gbr_caboolture_flow.ts  inputs/rivers/gbr_caboolture_temp.ts 
 BOUNDARY21.BCOND_TRA_ALL NOGRAD
 BOUNDARY21.INV_BAR       NO
 BOUNDARY21.BCOND_DIN     CUSTOM
@@ -1045,7 +1026,7 @@ BOUNDARY21.POINTS        1
 
 BOUNDARY22.NAME          Pine
 BOUNDARY22.TYPE          u2
-BOUNDARY22.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_pine_flow.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_pine_temp.ts
+BOUNDARY22.BCOND0        RIVER inputs/rivers/gbr_pine_flow.ts  inputs/rivers/gbr_pine_temp.ts
 BOUNDARY22.BCOND_TRA_ALL NOGRAD
 BOUNDARY22.INV_BAR       NO
 BOUNDARY22.BCOND_DIN     CUSTOM
@@ -1060,7 +1041,7 @@ BOUNDARY22.POINTS        1
 # Brisbane temps look dodgy, use bremer only
 BOUNDARY23.NAME          Brisbane+Bremer
 BOUNDARY23.TYPE          u2
-BOUNDARY23.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_brisbane+bremer_flow.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_bremer_temp.ts
+BOUNDARY23.BCOND0        RIVER inputs/rivers/gbr_brisbane+bremer_flow.ts  inputs/rivers/gbr_bremer_temp.ts
 BOUNDARY23.BCOND_TRA_ALL NOGRAD
 BOUNDARY23.INV_BAR       NO
 BOUNDARY23.BCOND_DIN     CUSTOM
@@ -1074,7 +1055,7 @@ BOUNDARY23.POINTS        1
 
 BOUNDARY24.NAME          Logan+Albert
 BOUNDARY24.TYPE          u2
-BOUNDARY24.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_logan+albert_flow.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_logan_temp.ts
+BOUNDARY24.BCOND0        RIVER inputs/rivers/gbr_logan+albert_flow.ts  inputs/rivers/gbr_logan_temp.ts
 BOUNDARY24.BCOND_TRA_ALL NOGRAD
 BOUNDARY24.INV_BAR       NO
 BOUNDARY24.BCOND_DIN     CUSTOM
@@ -1088,7 +1069,7 @@ BOUNDARY24.POINTS        1
 
 BOUNDARY25.NAME          Mossman
 BOUNDARY25.TYPE          u2
-BOUNDARY25.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_mossman_flow.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_mossman_temp.ts
+BOUNDARY25.BCOND0        RIVER inputs/rivers/gbr_mossman_flow.ts  inputs/rivers/gbr_mossman_temp.ts
 BOUNDARY25.BCOND_TRA_ALL NOGRAD
 BOUNDARY25.INV_BAR       NO
 BOUNDARY25.BCOND_DIN     TRCONC|CUSTOM
@@ -1107,7 +1088,7 @@ BOUNDARY25.POINTS        1
 ## no temp, using annan
 BOUNDARY26.NAME          Endeavour
 BOUNDARY26.TYPE          u2
-BOUNDARY26.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_endeavour_flow.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_annan_temp.ts
+BOUNDARY26.BCOND0        RIVER inputs/rivers/gbr_endeavour_flow.ts  inputs/rivers/gbr_annan_temp.ts
 BOUNDARY26.BCOND_TRA_ALL NOGRAD
 BOUNDARY26.INV_BAR       NO
 BOUNDARY26.BCOND_DIN     TRCONC|CUSTOM
@@ -1125,7 +1106,7 @@ BOUNDARY26.POINTS        1
 
 BOUNDARY27.NAME          Annan
 BOUNDARY27.TYPE          u2
-BOUNDARY27.BCOND0        RIVER /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_annan_flow.ts  /export/databases/SHOC/forcing/new_forcing_2015/flow/gbr_annan_temp.ts
+BOUNDARY27.BCOND0        RIVER inputs/rivers/gbr_annan_flow.ts  inputs/rivers/gbr_annan_temp.ts
 BOUNDARY27.BCOND_TRA_ALL NOGRAD
 BOUNDARY27.INV_BAR       NO
 BOUNDARY27.BCOND_DIN     TRCONC|CUSTOM
