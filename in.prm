@@ -621,6 +621,7 @@ HEATFLUX_FILE         inputs/heatflux/heatflux.nc
 #HEATFLUX_DT           31 days
 
 SALTFLUX BULK
+# multiply both variables by 86400 in order to get mm day-1
 PRECIPITATION         inputs/lprec-mod.nc
 #PRECIPITATION_INPUT_DT 31 days
 EVAPORATION           inputs/heatflux/evap-mod.nc
