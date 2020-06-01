@@ -12,6 +12,7 @@ parser.add_argument('pout', type=str, nargs='?', help="output path",
                     default=os.path.join(os.getcwd(), "river"))
 parser.add_argument('-u', '--unit', type=str, help="OUTPUT_TIMEUNIT",
                     default="days since 1979-01-01 00:00:00 +10")
+parser.add_argument('-v', '--verbose', action="store_true")
 args = parser.parse_args()
 
 if not os.path.isdir(args.pout):
@@ -28,6 +29,8 @@ header = {'flow': ("## COLUMNS 2\n##\n## COLUMN1.name time\n"
 
 for vname in ['temp', 'flow']:
     for path in glob(os.path.join(args.pin, "*{}.ts".format(vname))):
+        if args.verbose:
+            print(os.path.basename(path), end="... ")
         with open(os.path.join(args.pout, os.path.basename(path)), 'w') as fo:
             with open(path, 'r') as fi:
                 fo.write(header[vname])
@@ -59,3 +62,6 @@ for vname in ['temp', 'flow']:
                                 fo.write(str(convert(date + shift, in_units, args.unit)) + " " + val + "\n")
                                 break
                         prev = date, val
+        if args.verbose:
+            print("done")
+
