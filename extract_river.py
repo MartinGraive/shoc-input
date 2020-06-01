@@ -10,8 +10,8 @@ parser.add_argument('ed', type=float, help="STOP_TIME")
 parser.add_argument('pin', type=str, help="path to source")
 parser.add_argument('pout', type=str, nargs='?', help="output path",
                     default=os.path.join(os.getcwd(), "river"))
-parser.add_argument('-u', '--unit', type=str,
-                    default="days since 1979-01-01 00:00:00")
+parser.add_argument('-u', '--unit', type=str, help="OUTPUT_TIMEUNIT",
+                    default="days since 1979-01-01 00:00:00 +10")
 args = parser.parse_args()
 
 if not os.path.isdir(args.pout):
@@ -43,7 +43,7 @@ for vname in ['temp', 'flow']:
                             in_units = matchu.group(1)
                             start_date = convert(args.sd, args.unit, in_units)
                             end_date = convert(args.ed, args.unit, in_units)
-                            ref = cftime.date2num(cftime.datetime(2016, 1, 1),
+                            ref = cftime.date2num(cftime.datetime(2014, 1, 1),
                                                   in_units)  # fixme
                             shift = ((start_date - ref) // 365.25) * 365.25
                             new_start = start_date - shift
