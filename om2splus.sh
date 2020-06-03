@@ -1,9 +1,9 @@
 #!/bin/bash
 
-echo "Usage: ./om2splus.sh file variable minlon maxlon minlat maxlat"
+echo "Usage: ./om2splus.sh file variable minlon maxlon minlat maxlat [outfile]"
 echo ""
 
-FILE="$2-mod.nc"
+FILE=${7:-$2-mod.nc}
 UNITS=`ncdump -h $1 | grep "$2:units" | sed -E "s/.*$2\:units = \"(.+)\" ;/\1/"`
 LONG=`ncdump -h $1 | grep "$2:long_name" | sed -E "s/.*$2\:long_name = \"(.+)\" ;/\1/"`
 STANDARD=`ncdump -h $1 | grep "$2:standard_name" | sed -E "s/.*$2\:standard_name = \"(.+)\" ;/\1/"`
