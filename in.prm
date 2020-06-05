@@ -614,9 +614,14 @@ DRAG_LAW_CD1         0.00218
 #PRESSURE             /export/project/GBR4/gbr4_runs/tracers_and_diag/gbr_access.mnc(pressure=mslp)
 #PRESSURE_INPUT_DT    10.0   minutes
 
-HEATFLUX              NET_HEAT
-HEATFLUX_FILE         inputs/heatflux.mnc
-HEATFLUX_DT           31 days
+HEATFLUX             NET_HEAT
+HEATFLUX_FILE        inputs/heatflux.mnc
+HEATFLUX_DT          31 days
+RADIATION            inputs/swflx.mnc(swr=swflx)
+RADIATION_INPUT_DT   31 days
+# FIXME!
+ALBEDO               0.2
+# Short wave radiation attenuation and transmission can be specified
 
 #SALTFLUX BULK
 #PRECIPITATION         inputs/lprec.mnc(precipitation=lprec_m)

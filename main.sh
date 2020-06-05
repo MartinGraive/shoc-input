@@ -48,9 +48,10 @@ for f in *; do
       ncks -A $f `sed "s/_tau_x_/_tau_y_/g" <<< "$f"`
       mv `sed "s/_tau_x_/_tau_y_/g" <<< "$f"` `sed "s/_tau_x_/_wind_/g" <<< "$f"`; fi
    if [[ $f =~ _sfc_hflux_.*-mod\.nc$ ]]; then
+      ncatted -O -a units,swflx,o,c,"W m-2" `sed "s/_sfc_hflux_/_swflx_/g" <<< "$f"`
       ncks -A `sed "s/_sfc_hflux_/_swflx_/g" <<< "$f"` $f
       ncap2 -s 'heatflux=sfc_hflux-swflx' $f `sed "s/_sfc_hflux_/_heatflux_/g" <<< "$f"`
       ncks -O -x -v sfc_hflux,swflx `sed "s/_sfc_hflux_/_heatflux_/g" <<< "$f"` `sed "s/_sfc_hflux_/_heatflux_/g" <<< "$f"`; fi; done
 
 # Creates multi-netcdf files
-for v in wind heatflux; do writemnc $v; done
+for v in wind heatflux swflx; do writemnc $v; done
