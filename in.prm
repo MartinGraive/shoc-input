@@ -2,19 +2,18 @@
 DESCRIPTION          New eReefs GBR 4k grid with rivers. Uses JCU bathy (www.deepreef.org). Created by JA 08.05.2012.
 NAME                 GBR4
 PROJECTION           geographic
-TIMEUNIT             seconds since 1979-01-01 00:00:00 +10
-OUTPUT_TIMEUNIT      days since 1979-01-01 00:00:00 +10
+TIMEUNIT             seconds since 1979-01-01 00:00:00
+OUTPUT_TIMEUNIT      days since 1979-01-01 00:00:00
 LENUNIT              metre
-# 16 Dec 2060
-START_TIME           29935.917 days
-STOP_TIME            29945.917 days
-RAMPSTART            29935.917 days
-RAMPEND              29936.5 days
+START_TIME           29966.5 days
+STOP_TIME            30025.5 days
+RAMPSTART            29966.5 days
+RAMPEND              29967 days
 # INV_BARO?
-RAMPVARS             WIND TIDALH CUSTOM FILEIN 
+RAMPVARS             WIND TIDALH CUSTOM FILEIN
 ID_NUMBER            1.85
 
-INPUT_FILE           inputs/in2.nc
+INPUT_FILE           inputs/in.nc
 
 #RESTART_NAME	      inputs/restart.nc 
 #RESTART_DT           1 days
@@ -292,8 +291,8 @@ TRACER0.valid_range  0.0    50.0
 TRACER0.advect       1
 TRACER0.diffuse      1
 TRACER0.diagn        0
-TRACER0.data         inputs/ocean_salt_mth_2060_12-mod.nc
-TRACER0.relaxation_file           inputs/ocean_salt_mth_2060_12-mod.nc
+TRACER0.data         inputs/salt.mnc
+TRACER0.relaxation_file           inputs/salt.mnc
 TRACER0.relaxation_input_dt       1 day
 TRACER0.relaxation_time_constant  exp_depth 1000 100 days 4000 7 days
 
@@ -305,8 +304,8 @@ TRACER1.valid_range  0.0    50.0
 TRACER1.advect       1
 TRACER1.diffuse      1
 TRACER1.diagn        0
-TRACER1.data         inputs/ocean_temp_mth_2060_12-mod.nc
-TRACER1.relaxation_file           inputs/ocean_temp_mth_2060_12-mod.nc
+TRACER1.data         inputs/temp.mnc
+TRACER1.relaxation_file           inputs/temp.mnc
 TRACER1.relaxation_input_dt       1 day
 TRACER1.relaxation_time_constant  exp_depth 1000 100 days 4000 7 days
 
@@ -601,9 +600,9 @@ TRACER35.diagn        1
 
 
 # Forcing
-SURFACE inputs/ocean_eta_t_mth_2060_12-mod.nc(eta=eta_t)
+SURFACE inputs/eta_t.mnc(eta=eta_t)
 
-WIND_TS              inputs/wind_stress.nc
+WIND_TS              inputs/wind.mnc(wind_u=tau_x)(wind_v=tau_y)
 WIND_INPUT_DT        31 days
 WIND_TYPE            STRESS
 WIND_SPEED_SCALE     1.0
@@ -615,9 +614,9 @@ DRAG_LAW_CD1         0.00218
 #PRESSURE             /export/project/GBR4/gbr4_runs/tracers_and_diag/gbr_access.mnc(pressure=mslp)
 #PRESSURE_INPUT_DT    10.0   minutes
 
-HEATFLUX              COMP_HEAT_MOM
-HEATFLUX_FILE         inputs/heatflux/heatflux.nc
-#HEATFLUX_DT           31 days
+HEATFLUX              NET_HEAT
+HEATFLUX_FILE         inputs/heatflux.mnc
+HEATFLUX_DT           31 days
 
 #SALTFLUX BULK
 #PRECIPITATION         inputs/lprec.mnc(precipitation=lprec_m)
@@ -636,7 +635,7 @@ NBOUNDARIES             28
 BOUNDARY0.NAME          East
 BOUNDARY0.TYPE          u2
 BOUNDARY0.BCOND_ELE     NOTHIN|FILEIN|TIDALH
-BOUNDARY0.BCOND0        NEST1WAY inputs/ocean_eta_t_mth_2060_12-mod.nc(eta=eta_t) inputs/ocean_temp_mth_2060_12-mod.nc inputs/ocean_salt_mth_2060_12-mod.nc inputs/uv-mod.nc inputs/uv-mod.nc
+BOUNDARY0.BCOND0        NEST1WAY inputs/eta_t.mnc(eta=eta_t) inputs/temp.mnc inputs/salt.mnc inputs/uv.mnc inputs/uv.mnc
 BOUNDARY0.BCOND_TRA_ALL NOGRAD
 BOUNDARY0.FILEIN_DT     3 minutes
 BOUNDARY0.ADJUST_FLUX   12 seconds
@@ -651,7 +650,7 @@ BOUNDARY0.RANGE         (143,180)-(599,180)
 BOUNDARY1.NAME          West
 BOUNDARY1.TYPE          u2
 BOUNDARY1.BCOND_ELE     NOTHIN|FILEIN|TIDALH
-BOUNDARY1.BCOND0        NEST1WAY inputs/ocean_eta_t_mth_2060_12-mod.nc(eta=eta_t) inputs/ocean_temp_mth_2060_12-mod.nc inputs/ocean_salt_mth_2060_12-mod.nc inputs/uv-mod.nc inputs/uv-mod.nc
+BOUNDARY1.BCOND0        NEST1WAY inputs/eta_t.mnc(eta=eta_t) inputs/temp.mnc inputs/salt.mnc inputs/uv.mnc inputs/uv.mnc
 BOUNDARY1.BCOND_TRA_ALL NOGRAD
 BOUNDARY1.BCOND_tke     CLAMPD
 BOUNDARY1.BCOND_diss    CLAMPD
@@ -667,7 +666,7 @@ BOUNDARY1.RANGE         (42,0)-(79,0)
 BOUNDARY2.NAME          South
 BOUNDARY2.TYPE          u1
 BOUNDARY2.BCOND_ELE     NOTHIN|FILEIN|TIDALH
-BOUNDARY2.BCOND0        NEST1WAY inputs/ocean_eta_t_mth_2060_12-mod.nc(eta=eta_t) inputs/ocean_temp_mth_2060_12-mod.nc inputs/ocean_salt_mth_2060_12-mod.nc inputs/uv-mod.nc inputs/uv-mod.nc
+BOUNDARY2.BCOND0        NEST1WAY inputs/eta_t.mnc(eta=eta_t) inputs/temp.mnc inputs/salt.mnc inputs/uv.mnc inputs/uv.mnc
 BOUNDARY2.BCOND_TRA_ALL NOGRAD
 BOUNDARY2.FILEIN_DT     3 minutes
 BOUNDARY2.ADJUST_FLUX   6 seconds
