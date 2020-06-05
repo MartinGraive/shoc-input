@@ -612,7 +612,6 @@ DRAG_LAW_V1          26.0
 DRAG_LAW_CD0         0.00114
 DRAG_LAW_CD1         0.00218
 
-#fixme
 #PRESSURE             /export/project/GBR4/gbr4_runs/tracers_and_diag/gbr_access.mnc(pressure=mslp)
 #PRESSURE_INPUT_DT    10.0   minutes
 
@@ -620,11 +619,10 @@ HEATFLUX              COMP_HEAT_MOM
 HEATFLUX_FILE         inputs/heatflux/heatflux.nc
 #HEATFLUX_DT           31 days
 
-SALTFLUX BULK
-# multiply both variables by 86400 in order to get mm day-1
-PRECIPITATION         inputs/lprec-mod.nc
+#SALTFLUX BULK
+#PRECIPITATION         inputs/lprec.mnc(precipitation=lprec_m)
 #PRECIPITATION_INPUT_DT 31 days
-EVAPORATION           inputs/heatflux/evap-mod.nc
+#EVAPORATION           inputs/evap.mnc(evaporation=evap_m)
 #EVAPORATION_INPUT_DT  31 days
 
 PORUS_PLATE             /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/reef_frac_i.txt /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/reef_frac_j.txt
