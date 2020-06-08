@@ -1,7 +1,8 @@
 #!/bin/bash
 
-echo "Usage: ./om2splus.sh file variable minlon maxlon minlat maxlat [outfile]"
-echo ""
+if [ "$#" -lt 6 ]; then
+   echo "Usage: ./om2splus.sh file variable minlon maxlon minlat maxlat [outfile]"
+   exit; fi
 
 FILE=${7:-$2-mod.nc}
 UNITS=`ncdump -h $1 | grep "$2:units" | sed -E "s/.*$2\:units = \"(.+)\" ;/\1/"`
