@@ -619,8 +619,7 @@ HEATFLUX_FILE        inputs/heatflux.mnc
 HEATFLUX_DT          31 days
 RADIATION            inputs/swflx.mnc(swr=swflx)
 RADIATION_INPUT_DT   31 days
-# FIXME!
-ALBEDO               0.2
+ALBEDO               -0.2
 # Short wave radiation attenuation and transmission can be specified
 
 #SALTFLUX BULK
