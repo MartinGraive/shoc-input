@@ -622,11 +622,10 @@ RADIATION_INPUT_DT   31 days
 ALBEDO               -0.2
 # Short wave radiation attenuation and transmission can be specified
 
-#SALTFLUX BULK
-#PRECIPITATION         inputs/lprec.mnc(precipitation=lprec_m)
-#PRECIPITATION_INPUT_DT 31 days
-#EVAPORATION           inputs/evap.mnc(evaporation=evap_m)
-#EVAPORATION_INPUT_DT  31 days
+PRECIPITATION         inputs/lprec.mnc(precipitation=lprec_m)
+PRECIPITATION_INPUT_DT 31 days
+EVAPORATION           inputs/evap.mnc(evaporation=evap_m)
+EVAPORATION_INPUT_DT  31 days
 
 PORUS_PLATE             /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/reef_frac_i.txt /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/reef_frac_j.txt
 
