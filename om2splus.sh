@@ -2,7 +2,8 @@
 
 if [ "$#" -lt 6 ]; then
    echo "Usage: ./om2splus.sh file variable minlon maxlon minlat maxlat [outfile]"
-   exit; fi
+   exit
+fi
 
 FILE=${7:-$2-mod.nc}
 UNITS=`ncdump -h $1 | grep "$2:units" | sed -E "s/.*$2\:units = \"(.+)\" ;/\1/"`
@@ -11,15 +12,13 @@ STANDARD=`ncdump -h $1 | grep "$2:standard_name" | sed -E "s/.*$2\:standard_name
 
 ncks -v $2 $1 $FILE
 ncrename -v $2,eta_t $FILE
-$( dirname "$0" )/oceanmaps2shoc $FILE $2-mod-tmp.nc $3 $4 $5 $6 coord2d
+$(dirname "$0")/oceanmaps2shoc $FILE $2-mod-tmp.nc $3 $4 $5 $6 coord2d
 mv $2-mod-tmp.nc $FILE
 ncrename -v eta_t,$2 $FILE 
 ncatted -O -a units,$2,o,c,"$UNITS" $FILE
 ncatted -O -a long_name,$2,o,c,"$LONG" $FILE
-if [ "$STANDARD" == "" ]
-then
+if [ "$STANDARD" == "" ]; then
    ncatted -O -a standard_name,$2,d,, $FILE
-else
-   ncatted -O -a standard_name,$2,o,c,"$STANDARD" $FILE
+else ncatted -O -a standard_name,$2,o,c,"$STANDARD" $FILE
 fi
 ncatted -O -a valid_range,$2,d,, $FILE
