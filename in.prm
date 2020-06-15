@@ -18,11 +18,12 @@ ID_NUMBER            1.85
 INPUT_FILE           inputs/in.nc
 
 #RESTART_NAME	      inputs/restart.nc 
-#RESTART_DT           1 days
-#RESTART_COMPRESS     YES
+#RESTART_DT          1 days
+#RESTART_COMPRESS    YES
+
 
 # Output files
-OutputFiles            4
+OutputFiles          4
 
 file0.name           outputs/out_std.nc
 file0.filetype       standard
@@ -47,6 +48,7 @@ file3.filetype       simple_cf
 file3.tinc           604800.0 seconds
 file3.bytespervalue  4
 file3.vars           ALL
+
 
 # Time series
 TSPOINTS             0
@@ -176,7 +178,7 @@ LAYERFACES           48
  2.0
 
 # Bathymetry limits
-BATHYMIN            -3.0   
+BATHYMIN             -3.0
 BATHYMAX             4000
 ETAMAX               50
 MIN_CELL_THICKNESS   15%
@@ -602,7 +604,7 @@ TRACER35.diagn        1
 
 
 # Forcing
-SURFACE inputs/eta_t.mnc(eta=eta_t)
+SURFACE              inputs/eta_t.mnc(eta=eta_t)
 
 WIND_TS              inputs/wind.mnc(wind_u=tau_x)(wind_v=tau_y)
 WIND_INPUT_DT        31 days
@@ -626,15 +628,16 @@ SWR_TRANSMISSION     0.7
 SWR_ATTENUATION      0.1
 SWR_BOT_ABSORB       0.5
 
-PRECIPITATION         inputs/lprec.mnc(precipitation=lprec_m)
+PRECIPITATION        inputs/lprec.mnc(precipitation=lprec_m)
 PRECIPITATION_INPUT_DT 31 days
-EVAPORATION           inputs/evap.mnc(evaporation=evap_m)
-EVAPORATION_INPUT_DT  31 days
+EVAPORATION          inputs/evap.mnc(evaporation=evap_m)
+EVAPORATION_INPUT_DT 31 days
 
-PORUS_PLATE             /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/reef_frac_i.txt /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/reef_frac_j.txt
+PORUS_PLATE          /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/reef_frac_i.txt /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/reef_frac_j.txt
 
-TIDE_CSR_CON_DIR /export/databases/SHOC/tides/jhtide2/
+TIDE_CSR_CON_DIR     /export/databases/SHOC/tides/jhtide2/
 TIDE_CSR_ORTHOWEIGHTS /export/databases/SHOC/tides/ortho_csr_4.0
+
 
 # Open boundaries
 NBOUNDARIES             28
@@ -1128,5 +1131,5 @@ BOUNDARY27.POINTS        1
 200 31
 
 
-BATHYEXTFILE /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/bathymetry_gbr4.txt
-COORDFILE /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/coordinates_gbr4.txt
+BATHYEXTFILE             /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/bathymetry_gbr4.txt
+COORDFILE                /export/project/GBR4/gbr4_runs/tracers_and_diag/prm/coordinates_gbr4.txt
