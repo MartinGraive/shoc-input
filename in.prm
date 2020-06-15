@@ -1,4 +1,6 @@
 # SHOC parameter file
+CODEHEADER           SHOC default version
+PARAMETERHEADER      GBR4 forecasting model
 DESCRIPTION          New eReefs GBR 4k grid with rivers. Uses JCU bathy (www.deepreef.org). Created by JA 08.05.2012.
 NAME                 GBR4
 PROJECTION           geographic
