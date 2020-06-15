@@ -622,7 +622,9 @@ HEATFLUX_DT          31 days
 RADIATION            inputs/swflx.mnc(swr=swflx)
 RADIATION_INPUT_DT   31 days
 ALBEDO               -0.2
-# Short wave radiation attenuation and transmission can be specified
+SWR_TRANSMISSION     0.7
+SWR_ATTENUATION      0.1
+SWR_BOT_ABSORB       0.5
 
 PRECIPITATION         inputs/lprec.mnc(precipitation=lprec_m)
 PRECIPITATION_INPUT_DT 31 days
