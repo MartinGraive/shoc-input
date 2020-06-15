@@ -24,25 +24,25 @@ OutputFiles            4
 
 file0.name           outputs/out_std.nc
 file0.filetype       standard
-file0.tinc           21600.0 seconds
+file0.tinc           604800.0 seconds
 file0.bytespervalue  4
 file0.vars           ALL
 
 file1.name           outputs/out_std_surf.nc
 file1.filetype       standard
-file1.tinc           3600.0 seconds
+file1.tinc           86400.0 seconds
 file1.bytespervalue  4
 file1.vars           ALL
 
 file2.name           outputs/swan_forcing.nc
 file2.filetype       simple_cf
-file2.tinc           3600.0 seconds
+file2.tinc           43200.0 seconds
 file2.bytespervalue  4
 file2.vars           eta u v
 
 file3.name           outputs/out_simple.nc
 file3.filetype       simple_cf
-file3.tinc           86400.0 seconds
+file3.tinc           604800.0 seconds
 file3.bytespervalue  4
 file3.vars           ALL
 
