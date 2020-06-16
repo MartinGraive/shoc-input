@@ -35,27 +35,23 @@ for f in *; do
 # Creates multi-netcdf files
 for v in temp salt eta_t uv; do writemnc $v; done
 
-# Changes grid for heatfluxes and wind stresses variables
+# Changes grid for heatfluxes, saltfluxes and wind stresses variables
 for f in *; do
    if [[ $f =~ _force_.*\.nc$ ]]; then
       echo $f
-      for v in tau_x tau_y lprec evap sfc_hflux swflx; do
+      $(dirname "$0")/om2mom4hf.sh $f 140 159.8 -30 -5.2 `sed "s/\.nc/-mod\.nc/g" <<< "$f" | sed "s/force/heatflux/g"`
+      for v in tau_x tau_y lprec evap; do
          $(dirname "$0")/om2splus.sh $f $v 140 159.8 -30 -5.2 `sed "s/\.nc/-mod\.nc/g" <<< "$f" | sed "s/force/$v/g"`; done; fi; done
 
-# Merges i- and j-directed wind stresses, creates variable heatflux=lwr+sensible+latent
+# Merges i- and j-directed wind stresses, converts precipitation and evaporation to mm/day
 for f in *; do
    if [[ $f =~ _tau_x_.*-mod\.nc$ ]]; then
       ncks -A $f `sed "s/_tau_x_/_tau_y_/g" <<< "$f"`
       mv `sed "s/_tau_x_/_tau_y_/g" <<< "$f"` `sed "s/_tau_x_/_wind_/g" <<< "$f"`; fi
-   if [[ $f =~ _sfc_hflux_.*-mod\.nc$ ]]; then
-      ncatted -O -a units,swflx,o,c,"W m-2" `sed "s/_sfc_hflux_/_swflx_/g" <<< "$f"`
-      ncks -A `sed "s/_sfc_hflux_/_swflx_/g" <<< "$f"` $f
-      ncap2 -s 'heatflux=sfc_hflux-swflx' $f `sed "s/_sfc_hflux_/_heatflux_/g" <<< "$f"`
-      ncks -O -x -v sfc_hflux,swflx `sed "s/_sfc_hflux_/_heatflux_/g" <<< "$f"` `sed "s/_sfc_hflux_/_heatflux_/g" <<< "$f"`; fi
    for v in lprec evap; do
          if [[ $f =~ _${v}_.*-mod\.nc$ ]]; then
             ncap2 -A -s ${v}_m=$v*86400 $f
             ncatted -O -a units,${v}_m,o,c,"mm day-1" $f; fi; done; done
 
 # Creates multi-netcdf files
-for v in wind heatflux evap lprec swflx; do writemnc $v; done
+for v in wind heatflux evap lprec; do writemnc $v; done
