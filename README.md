@@ -1,6 +1,6 @@
 # Parameter file for SHOC forecasting
 
-Instructions: `cd` into a directory containing the OFAM model outputs. Execute `main.sh` (which should be kept in the same folder as `om2splus.sh`) or adapt it if necessary (depends on the filename syntax). Update START\_TIME, STOP\_TIME, RAMPSTART and RAMPEND in `in.prm`. If needed, use the `extract_river.py` script to generate river data. Finally, run SHOC with option `-g in.prm inputs/in.nc`.
+**Instructions:** `cd` into a directory containing the OFAM model outputs. Execute `main.sh` (which should be kept in the same folder as `om2splus.sh` and `om2mom4hf.sh`) or adapt it if necessary (depends on the filename syntax). Update START\_TIME, STOP\_TIME, RAMPSTART, RAMPEND and possibly the DTs in `in.prm`. If needed, use the `extract_river.py` script to generate river data. Finally, run SHOC with option `-g in.prm inputs/in.nc`.
 
 ## Description
 
