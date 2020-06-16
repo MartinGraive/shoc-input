@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$#" -lt 6 ]; then
+if [ "$#" -lt 6 ] || [ "$#" -gt 7 ]; then
    echo "Usage: ./om2splus.sh file variable minlon maxlon minlat maxlat [outfile]"
    exit
 fi
